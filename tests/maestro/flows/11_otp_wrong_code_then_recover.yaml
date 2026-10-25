@@ -1,0 +1,30 @@
+appId: com.manastik.dadtmedico
+name: "TC-OTP-02 Wrong phone OTP is rejected inline and the user can recover with the right code"
+tags: [otp, negative, requires-otp]
+env:
+  MAESTRO_TEST_OTP: ${MAESTRO_TEST_OTP}
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- runScript: ../scripts/random_phone.js
+- tapOn: "Get Started"
+- tapOn: "Phone Number.*"
+- inputText: ${output.phone}
+- tapOn: "Send OTP"
+- extendedWaitUntil:
+    visible: "Enter the security code"
+    timeout: 20000
+- assertVisible: "Change number"
+- tapOn:
+    point: "10%,30%"
+- inputText: "000000"
+- assertVisible: "Invalid security code.*"   # inline error is in the accessibility tree
+- takeScreenshot: TC-OTP-02_invalid_code
+- assertNotVisible: "Personal details"
+# recovery: refocus, clear, enter the correct code promptly
+- tapOn:
+    point: "90%,30%"
+- eraseText: 8
+- inputText: ${MAESTRO_TEST_OTP}
+- extendedWaitUntil:
+    visible: "Personal details"
+    timeout: 20000

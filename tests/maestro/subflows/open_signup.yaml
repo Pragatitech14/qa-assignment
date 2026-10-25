@@ -1,0 +1,6 @@
+# Welcome -> "Create your account" (phone number entry)
+appId: com.manastik.dadtmedico
+---
+- tapOn: "Get Started"
+- assertVisible: "CREATE YOUR ACCOUNT"
+- assertVisible: "Enter your phone number"

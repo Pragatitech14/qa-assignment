@@ -1,0 +1,48 @@
+# Cold start with wiped app data, ending on the Welcome screen.
+#  * Maestro grants every runtime permission by default, which hides the notification
+#    dialog, so grants are cleared (permissions: all: unset).
+#  * The dialog can take >10 s to appear, and Android sometimes suppresses it after
+#    earlier denials in the same device session, so accepting it is optional here
+#    (TC-PRM-01 asserts the dialog strictly).
+#  * Occasionally the relaunch comes up on a stale Login/Sign-up screen instead of
+#    Welcome (seen twice during development, not reproducible on demand). Detect that and
+#    relaunch once so a flaky start cannot fail an unrelated test.
+appId: com.manastik.dadtmedico
+---
+- setAirplaneMode: disabled     # safety net if a previous flow aborted while offline
+- stopApp
+- launchApp:
+    clearState: true
+    stopApp: true
+    permissions:
+      all: unset
+- extendedWaitUntil:
+    visible: "Allow"
+    timeout: 25000
+    optional: true
+- tapOn:
+    text: "Allow"
+    optional: true
+- runFlow:
+    when:
+      visible: "(Login to your account|CREATE YOUR ACCOUNT)"
+    commands:
+      - stopApp
+      - launchApp:
+          clearState: true
+          stopApp: true
+          permissions:
+            all: unset
+      - extendedWaitUntil:
+          visible: "Allow"
+          timeout: 25000
+          optional: true
+      - tapOn:
+          text: "Allow"
+          optional: true
+- extendedWaitUntil:
+    visible: "Welcome to Manastik"
+    timeout: 30000
+- extendedWaitUntil:
+    visible: "Get Started"
+    timeout: 15000

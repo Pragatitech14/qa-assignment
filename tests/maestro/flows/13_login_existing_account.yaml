@@ -1,0 +1,24 @@
+appId: com.manastik.dadtmedico
+name: "TC-LOG-01 Login with an existing onboarded account resumes at Verification in progress"
+tags: [login, requires-otp, requires-existing-account]
+env:
+  MAESTRO_TEST_OTP: ${MAESTRO_TEST_OTP}
+  MAESTRO_EXISTING_PHONE: ${MAESTRO_EXISTING_PHONE}
+---
+# Depends on server-side state: MAESTRO_EXISTING_PHONE must be a number that already completed
+# flow 09 (run_all.sh does this automatically by recording the number from that run).
+- runFlow: ../subflows/launch_fresh.yaml
+- tapOn: "Login"
+- tapOn: "Phone Number.*"
+- inputText: ${MAESTRO_EXISTING_PHONE}
+- tapOn: "Send OTP"
+- extendedWaitUntil:
+    visible: "Enter the security code"
+    timeout: 20000
+- tapOn:
+    point: "10%,30%"
+- inputText: ${MAESTRO_TEST_OTP}
+- extendedWaitUntil:
+    visible: "Verification in progress"
+    timeout: 30000
+- takeScreenshot: TC-LOG-01_existing_account

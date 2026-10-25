@@ -1,0 +1,31 @@
+# Android system picker -> Downloads -> the dummy PDF pushed by run_all.sh (tests/fixtures).
+# "Recent" and search are empty (pushed files are not media-indexed), so Downloads is opened
+# explicitly. The drawer must finish animating before "Downloads" is tapped, otherwise the tap
+# lands on the scrim and just closes the drawer. The exact file name is used because the PNG
+# next to it is disabled for PDF-only upload slots.
+appId: com.manastik.dadtmedico
+---
+- extendedWaitUntil:
+    visible: "Show roots"
+    timeout: 15000
+- tapOn: "Show roots"
+- waitForAnimationToEnd:
+    timeout: 3000
+- extendedWaitUntil:
+    visible: "Downloads"
+    timeout: 8000
+- tapOn: "Downloads"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      notVisible: "Files in Downloads"
+    commands:            # drawer swallowed the tap: retry once
+      - tapOn: "Show roots"
+      - waitForAnimationToEnd:
+          timeout: 3000
+      - tapOn: "Downloads"
+- extendedWaitUntil:
+    visible: "Files in Downloads"
+    timeout: 8000
+- tapOn: "dummy_test_document.pdf"

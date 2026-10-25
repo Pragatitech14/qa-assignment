@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="qa_pixel" tests="11" failures="0" time="743.648" timestamp="2026-10-25T19:01:42">
+    <testcase id="TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow" name="TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow" classname="TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow" file="flows/04_signup_invalid_phone_rejected.yaml" time="51.668" timestamp="2026-10-25T19:01:42" status="SUCCESS">
+      <properties>
+        <property name="tags" value="signup, validation, negative"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-OTP-02 Wrong phone OTP is rejected inline and the user can recover with the right code" name="TC-OTP-02 Wrong phone OTP is rejected inline and the user can recover with the right code" classname="TC-OTP-02 Wrong phone OTP is rejected inline and the user can recover with the right code" file="flows/11_otp_wrong_code_then_recover.yaml" time="54.867" timestamp="2026-10-25T19:02:34" status="SUCCESS">
+      <properties>
+        <property name="tags" value="otp, negative, requires-otp"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-WEL-01 Welcome screen renders after fresh install" name="TC-WEL-01 Welcome screen renders after fresh install" classname="TC-WEL-01 Welcome screen renders after fresh install" file="flows/01_welcome_screen.yaml" time="31.034" timestamp="2026-10-25T19:03:29" status="SUCCESS">
+      <properties>
+        <property name="tags" value="smoke, welcome"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-LOG-02 Login rejects invalid phone numbers" name="TC-LOG-02 Login rejects invalid phone numbers" classname="TC-LOG-02 Login rejects invalid phone numbers" file="flows/05_login_invalid_phone_rejected.yaml" time="50.685" timestamp="2026-10-25T19:04:00" status="SUCCESS">
+      <properties>
+        <property name="tags" value="login, validation, negative"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-E2E-01 Full onboarding: phone OTP to email OTP to 7 stages to Verification in progress" name="TC-E2E-01 Full onboarding: phone OTP to email OTP to 7 stages to Verification in progress" classname="TC-E2E-01 Full onboarding: phone OTP to email OTP to 7 stages to Verification in progress" file="flows/09_e2e_signup_to_verification_pending.yaml" time="280.886" timestamp="2026-10-25T19:04:51" status="SUCCESS">
+      <properties>
+        <property name="tags" value="e2e, happy-path, requires-otp"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-NAV-01 Navigation between Welcome, Sign-up and Login" name="TC-NAV-01 Navigation between Welcome, Sign-up and Login" classname="TC-NAV-01 Navigation between Welcome, Sign-up and Login" file="flows/06_signup_login_navigation.yaml" time="44.156" timestamp="2026-10-25T19:09:31" status="SUCCESS">
+      <properties>
+        <property name="tags" value="navigation, regression"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-PRM-01 App stays usable when notification permission is denied" name="TC-PRM-01 App stays usable when notification permission is denied" classname="TC-PRM-01 App stays usable when notification permission is denied" file="flows/02_notification_permission_denied.yaml" time="24.294" timestamp="2026-10-25T19:10:16" status="SUCCESS">
+      <properties>
+        <property name="tags" value="permissions, negative"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-REG-02 Stage 1: invalid email is flagged and Next stays disabled until the form is valid" name="TC-REG-02 Stage 1: invalid email is flagged and Next stays disabled until the form is valid" classname="TC-REG-02 Stage 1: invalid email is flagged and Next stays disabled until the form is valid" file="flows/12_stage1_form_validation.yaml" time="77.6" timestamp="2026-10-25T19:10:40" status="SUCCESS">
+      <properties>
+        <property name="tags" value="registration, validation, negative, requires-otp"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-SUP-02 Phone field accepts digits only and caps at 10 digits" name="TC-SUP-02 Phone field accepts digits only and caps at 10 digits" classname="TC-SUP-02 Phone field accepts digits only and caps at 10 digits" file="flows/03_signup_phone_input_rules.yaml" time="38.49" timestamp="2026-10-25T19:11:58" status="SUCCESS">
+      <properties>
+        <property name="tags" value="signup, validation, boundary"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-INT-01 Entered phone number survives backgrounding" name="TC-INT-01 Entered phone number survives backgrounding" classname="TC-INT-01 Entered phone number survives backgrounding" file="flows/07_state_survives_backgrounding.yaml" time="45.853" timestamp="2026-10-25T19:12:36" status="SUCCESS">
+      <properties>
+        <property name="tags" value="interruption, edge"/>
+      </properties>
+    </testcase>
+    <testcase id="TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash" name="TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash" classname="TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash" file="flows/08_signup_offline_error.yaml" time="44.04" timestamp="2026-10-25T19:13:22" status="SUCCESS">
+      <properties>
+        <property name="tags" value="network, negative, error-handling"/>
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>

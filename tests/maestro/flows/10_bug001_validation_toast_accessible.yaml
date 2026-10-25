@@ -1,0 +1,15 @@
+appId: com.manastik.dadtmedico
+name: "BUG-001 repro: validation toast is exposed to accessibility services (EXPECTED TO FAIL)"
+tags: [known-bug, accessibility]
+---
+# Expected: the error text is in the accessibility tree (TalkBack can announce it).
+# Actual:   the toast is on screen for ~2 s but Maestro/uiautomator never see it.
+- runFlow: ../subflows/launch_fresh.yaml
+- runFlow: ../subflows/open_signup.yaml
+- tapOn: "Phone Number.*"
+- inputText: "0123456789"
+- hideKeyboard
+- tapOn: "Send OTP"
+- extendedWaitUntil:
+    visible: "Please enter a valid phone number."
+    timeout: 10000

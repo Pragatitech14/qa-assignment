@@ -1,0 +1,19 @@
+appId: com.manastik.dadtmedico
+name: "TC-LOG-02 Login rejects invalid phone numbers"
+tags: [login, validation, negative]
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- runFlow: ../subflows/open_login.yaml
+- tapOn: "Send OTP"
+- assertVisible: "Login to your account"
+- tapOn: "Phone Number.*"
+- inputText: "12345"
+- tapOn: "Send OTP"
+- assertVisible: "Login to your account"
+- eraseText: 20
+- inputText: "1234567890"
+- tapOn: "Send OTP"
+- runScript: ../scripts/wait_for_toast.js
+- takeScreenshot: TC-LOG-02_invalid_phone_toast
+- assertVisible: "Login to your account"
+- assertNotVisible: ".*OTP.*sent.*"

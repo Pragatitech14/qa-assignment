@@ -1,0 +1,145 @@
+19:13:22.422 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Define variables RUNNING
+19:13:22.422 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Define variables COMPLETED
+19:13:22.422 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Apply configuration RUNNING
+19:13:22.422 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Apply configuration COMPLETED
+19:13:22.422 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Run ../subflows/launch_fresh.yaml RUNNING
+19:13:22.423 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Apply configuration RUNNING
+19:13:22.423 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Apply configuration COMPLETED
+19:13:22.423 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Disable airplane mode RUNNING
+19:13:22.463 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Disable airplane mode COMPLETED
+19:13:22.463 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Stop com.manastik.dadtmedico RUNNING
+19:13:22.464 [ INFO] maestro.Maestro.stopApp$lambda$6: Stopping app com.manastik.dadtmedico
+19:13:22.586 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Stop com.manastik.dadtmedico COMPLETED
+19:13:22.586 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Launch app "com.manastik.dadtmedico" with clear state RUNNING
+19:13:22.587 [ INFO] maestro.Maestro.clearAppState$lambda$8: Clearing app state com.manastik.dadtmedico
+19:13:30.017 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission android.permission.WRITE_EXTERNAL_STORAGE for app com.manastik.dadtmedico: shell command failed (exit -1): 
+Exception occurred while executing 'revoke':
+java.lang.SecurityException: Package com.manastik.dadtmedico has not requested permission android.permission.WRITE_EXTERNAL_STORAGE
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermissionInternal(PermissionManagerServiceImpl.java:1613)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermissionInternal(PermissionManagerServiceImpl.java:1535)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermission(PermissionManagerServiceImpl.java:1515)
+	at com.android.server.pm.permission.PermissionManagerService.revokeRuntimePermission(PermissionManagerService.java:557)
+	at android.permission.PermissionManager.revokeRuntimePermission(PermissionManager.java:648)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2674)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:293)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6350)
+	at android.os.Binder.shellCommand(Binder.java:1068)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4352)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6334)
+	at android.os.Binder.execTransactInternal(Binder.java:1344)
+	at android.os.Binder.execTransact(Binder.java:1275)
+
+19:13:30.112 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission android.permission.READ_EXTERNAL_STORAGE for app com.manastik.dadtmedico: shell command failed (exit -1): 
+Exception occurred while executing 'revoke':
+java.lang.SecurityException: Package com.manastik.dadtmedico has not requested permission android.permission.READ_EXTERNAL_STORAGE
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermissionInternal(PermissionManagerServiceImpl.java:1613)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermissionInternal(PermissionManagerServiceImpl.java:1535)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermission(PermissionManagerServiceImpl.java:1515)
+	at com.android.server.pm.permission.PermissionManagerService.revokeRuntimePermission(PermissionManagerService.java:557)
+	at android.permission.PermissionManager.revokeRuntimePermission(PermissionManager.java:648)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2674)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:293)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6350)
+	at android.os.Binder.shellCommand(Binder.java:1068)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4352)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6334)
+	at android.os.Binder.execTransactInternal(Binder.java:1344)
+	at android.os.Binder.execTransact(Binder.java:1275)
+
+19:13:30.305 [DEBUG] maestro.Maestro.setPermissionInternal: Failed to set permission com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE for app com.manastik.dadtmedico: shell command failed (exit -1): 
+Exception occurred while executing 'revoke':
+java.lang.IllegalArgumentException: Unknown permission: com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermissionInternal(PermissionManagerServiceImpl.java:1577)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermissionInternal(PermissionManagerServiceImpl.java:1535)
+	at com.android.server.pm.permission.PermissionManagerServiceImpl.revokeRuntimePermission(PermissionManagerServiceImpl.java:1515)
+	at com.android.server.pm.permission.PermissionManagerService.revokeRuntimePermission(PermissionManagerService.java:557)
+	at android.permission.PermissionManager.revokeRuntimePermission(PermissionManager.java:648)
+	at com.android.server.pm.PackageManagerShellCommand.runGrantRevokePermission(PackageManagerShellCommand.java:2674)
+	at com.android.server.pm.PackageManagerShellCommand.onCommand(PackageManagerShellCommand.java:293)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+	at android.os.ShellCommand.exec(ShellCommand.java:38)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onShellCommand(PackageManagerService.java:6350)
+	at android.os.Binder.shellCommand(Binder.java:1068)
+	at android.os.Binder.onTransact(Binder.java:888)
+	at android.content.pm.IPackageManager$Stub.onTransact(IPackageManager.java:4352)
+	at com.android.server.pm.PackageManagerService$IPackageManagerImpl.onTransact(PackageManagerService.java:6334)
+	at android.os.Binder.execTransactInternal(Binder.java:1344)
+	at android.os.Binder.execTransact(Binder.java:1275)
+
+19:13:30.361 [ INFO] maestro.Maestro.launchApp$lambda$5: Launching app com.manastik.dadtmedico
+19:13:30.361 [ INFO] maestro.Maestro.launchApp$lambda$5: Stopping com.manastik.dadtmedico app during launch
+19:13:30.430 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Launch app "com.manastik.dadtmedico" with clear state COMPLETED
+19:13:30.430 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that (Optional) "Allow" is visible RUNNING
+19:13:40.403 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that (Optional) "Allow" is visible COMPLETED
+19:13:40.404 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on (Optional) "Allow" RUNNING
+19:13:40.941 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=Allow, accessibilityText=, hintText=, ignoreBoundsFiltering=false, resource-id=com.android.permissioncontroller:id/permission_allow_button, clickable=true, bounds=[133,1230][947,1377], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.Button, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=133, y=1230, width=814, height=147))
+19:13:41.780 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:13:41.781 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 1303) using hierarchy based logic for wait
+19:13:43.320 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:13:43.321 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on (Optional) "Allow" COMPLETED
+19:13:43.321 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Run flow when "(Login to your account|CREATE YOUR ACCOUNT)" is visible RUNNING
+19:13:50.465 [ INFO] maestro.orchestra.Orchestra.executeSubflowCommands: [Command execution subflow] CommandSkipped: null
+19:13:50.465 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Run flow when "(Login to your account|CREATE YOUR ACCOUNT)" is visible SKIPPED
+19:13:50.465 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Welcome to Manastik" is visible RUNNING
+19:13:50.501 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Welcome to Manastik" is visible COMPLETED
+19:13:50.501 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Get Started" is visible RUNNING
+19:13:50.576 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Get Started" is visible COMPLETED
+19:13:50.576 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Run ../subflows/launch_fresh.yaml COMPLETED
+19:13:50.576 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Run ../subflows/open_signup.yaml RUNNING
+19:13:50.577 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Apply configuration RUNNING
+19:13:50.577 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Apply configuration COMPLETED
+19:13:50.577 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Get Started" RUNNING
+19:13:50.672 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Get Started, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=true, bounds=[434,2163][1037,2312], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.Button, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=434, y=2163, width=603, height=149))
+19:13:51.901 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:13:51.901 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (735, 2237) using hierarchy based logic for wait
+19:13:54.403 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:13:54.403 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Get Started" COMPLETED
+19:13:54.403 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "CREATE YOUR ACCOUNT" is visible RUNNING
+19:13:54.537 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "CREATE YOUR ACCOUNT" is visible COMPLETED
+19:13:54.537 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Enter your phone number" is visible RUNNING
+19:13:54.654 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Enter your phone number" is visible COMPLETED
+19:13:54.654 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Run ../subflows/open_signup.yaml COMPLETED
+19:13:54.654 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Phone Number.*" RUNNING
+19:13:54.767 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=, hintText=Phone Number
+Phone Number
+Enter your phone number, ignoreBoundsFiltering=false, resource-id=, clickable=true, bounds=[43,733][1037,859], enabled=true, focused=true, checked=false, scrollable=false, selected=false, class=android.widget.EditText, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=true, checked=false, selected=false), bounds=Bounds(x=43, y=733, width=994, height=126))
+19:13:56.001 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:13:56.001 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 796) using hierarchy based logic for wait
+19:13:56.382 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Phone Number.*" COMPLETED
+19:13:56.382 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Input text 9000000000 RUNNING
+19:13:56.383 [ INFO] maestro.Maestro.inputText: Inputting text: 9000000000
+19:13:58.507 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Input text 9000000000 COMPLETED
+19:13:58.507 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Hide Keyboard RUNNING
+19:13:58.508 [ INFO] maestro.Maestro.hideKeyboard$lambda$12: Hiding Keyboard
+19:13:59.660 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Hide Keyboard COMPLETED
+19:13:59.660 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Enable airplane mode RUNNING
+19:13:59.711 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Enable airplane mode COMPLETED
+19:13:59.711 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Send OTP" RUNNING
+19:14:00.531 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Send OTP, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=true, bounds=[46,2033][1034,2179], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.view.View, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=46, y=2033, width=988, height=146))
+19:14:01.807 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:14:01.808 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 2106) using hierarchy based logic for wait
+19:14:03.167 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Something has changed in the UI judging by view hierarchy. Proceed.
+19:14:03.167 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Send OTP" COMPLETED
+19:14:03.167 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Network Error.*" is visible RUNNING
+19:14:03.264 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Network Error.*" is visible COMPLETED
+19:14:03.264 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Try Again" is visible RUNNING
+19:14:03.380 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Try Again" is visible COMPLETED
+19:14:03.380 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Take screenshot TC-NET-01_network_error_dialog RUNNING
+19:14:03.383 [ INFO] maestro.Maestro.takeScreenshot: Taking screenshot
+19:14:03.383 [TRACE] maestro.utils.ScreenshotUtils.takeScreenshot: Taking screenshot to output sink
+19:14:03.745 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Take screenshot TC-NET-01_network_error_dialog COMPLETED
+19:14:03.745 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Tap on "Try Again" RUNNING
+19:14:03.852 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tapping on element:  UiElement(treeNode=TreeNode(attributes={text=, accessibilityText=Try Again, hintText=, ignoreBoundsFiltering=false, resource-id=, clickable=true, bounds=[189,1392][891,1518], enabled=true, focused=false, checked=false, scrollable=false, selected=false, class=android.widget.Button, important-for-accessibility=true, error=}, children=[], clickable=true, enabled=true, focused=false, checked=false, selected=false), bounds=Bounds(x=189, y=1392, width=702, height=126))
+19:14:05.064 [ INFO] maestro.Maestro.tap-HgV9Ck0: Tap aimed via settled hierarchy
+19:14:05.065 [ INFO] maestro.Maestro.hierarchyBasedTap-ogj28Uc: Tapping at (540, 1455) using hierarchy based logic for wait
+19:14:05.941 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Tap on "Try Again" COMPLETED
+19:14:05.942 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Assert that "Network Error.*" is visible RUNNING
+19:14:06.115 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Assert that "Network Error.*" is visible COMPLETED
+19:14:06.115 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandStart: Disable airplane mode RUNNING
+19:14:06.231 [ INFO] maestro.cli.runner.CliConsoleListener.onCommandFinished: Disable airplane mode COMPLETED

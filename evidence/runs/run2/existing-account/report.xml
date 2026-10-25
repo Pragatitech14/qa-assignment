@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="qa_pixel" tests="1" failures="0" time="48.301" timestamp="2026-10-25T19:14:23">
+    <testcase id="TC-LOG-01 Login with an existing onboarded account resumes at Verification in progress" name="TC-LOG-01 Login with an existing onboarded account resumes at Verification in progress" classname="TC-LOG-01 Login with an existing onboarded account resumes at Verification in progress" file="flows/13_login_existing_account.yaml" time="48.281" timestamp="2026-10-25T19:14:23" status="SUCCESS">
+      <properties>
+        <property name="tags" value="login, requires-otp, requires-existing-account"/>
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>

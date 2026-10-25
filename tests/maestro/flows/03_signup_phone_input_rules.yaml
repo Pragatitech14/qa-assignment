@@ -1,0 +1,13 @@
+appId: com.manastik.dadtmedico
+name: "TC-SUP-02 Phone field accepts digits only and caps at 10 digits"
+tags: [signup, validation, boundary]
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- runFlow: ../subflows/open_signup.yaml
+- tapOn: "Phone Number.*"
+- inputText: "abcxyz"
+- assertNotVisible: "abcxyz"
+- inputText: "98765432101"        # 11 digits -> only the first 10 are kept
+- assertVisible: "9876543210"
+- assertNotVisible: "98765432101"
+- takeScreenshot: TC-SUP-02_ten_digit_cap

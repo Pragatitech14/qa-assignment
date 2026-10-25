@@ -1,0 +1,15 @@
+appId: com.manastik.dadtmedico
+name: "TC-NAV-01 Navigation between Welcome, Sign-up and Login"
+tags: [navigation, regression]
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- runFlow: ../subflows/open_signup.yaml
+- hideKeyboard
+- tapOn: "ALREADY HAVE AN ACCOUNT\\?.*"
+- assertVisible: "Login to your account"
+- hideKeyboard
+- tapOn: "DON'T HAVE AN ACCOUNT\\?.*"
+- assertVisible: "CREATE YOUR ACCOUNT"
+- back
+- back
+- assertVisible: "Get Started"     # system Back unwinds to the welcome screen

@@ -1,0 +1,8 @@
+.DS_Store
+*.apk
+*.zip
+*.bak
+# Maestro writes per-run output here; curated runs under evidence/runs are committed on purpose
+
+# Screen recordings contain the test OTP being typed - share via the Drive folder, not git
+evidence/demo/*.mp4

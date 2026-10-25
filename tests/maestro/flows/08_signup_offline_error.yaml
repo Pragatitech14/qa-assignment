@@ -1,0 +1,23 @@
+appId: com.manastik.dadtmedico
+name: "TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash"
+tags: [network, negative, error-handling]
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- runFlow: ../subflows/open_signup.yaml
+- tapOn: "Phone Number.*"
+- inputText: "9000000000"
+- hideKeyboard
+- setAirplaneMode: enabled
+- tapOn: "Send OTP"
+- extendedWaitUntil:
+    visible: "Network Error.*"
+    timeout: 20000
+- assertVisible: "Try Again"
+- takeScreenshot: TC-NET-01_network_error_dialog
+# Retrying while still offline must keep the user on the error state (and,
+# because we are offline, can never reach the backend / send an SMS).
+- tapOn: "Try Again"
+- extendedWaitUntil:
+    visible: "Network Error.*"
+    timeout: 20000
+- setAirplaneMode: disabled

@@ -1,0 +1,6 @@
+# Welcome -> "Login to your account" (phone number entry)
+appId: com.manastik.dadtmedico
+---
+- tapOn: "Login"
+- assertVisible: "Login to your account"
+- assertVisible: "Enter your registered phone number to login"

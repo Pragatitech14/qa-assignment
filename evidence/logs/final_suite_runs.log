@@ -1,0 +1,38 @@
+=== run1 18:46:32
+[Passed] TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow (1m 1s)
+[Passed] TC-OTP-02 Wrong phone OTP is rejected inline and the user can recover with the right code (55s)
+[Passed] TC-WEL-01 Welcome screen renders after fresh install (29s)
+[Passed] TC-LOG-02 Login rejects invalid phone numbers (51s)
+[Passed] TC-E2E-01 Full onboarding: phone OTP to email OTP to 7 stages to Verification in progress (4m 40s)
+[Passed] TC-NAV-01 Navigation between Welcome, Sign-up and Login (44s)
+[Passed] TC-PRM-01 App stays usable when notification permission is denied (24s)
+[Passed] TC-REG-02 Stage 1: invalid email is flagged and Next stays disabled until the form is valid (1m 19s)
+[Passed] TC-SUP-02 Phone field accepts digits only and caps at 10 digits (38s)
+[Passed] TC-INT-01 Entered phone number survives backgrounding (46s)
+[Passed] TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash (43s)
+11/11 Flows Passed in 12m 32s
+--- TC-LOG-01 (existing account) ---
+[Passed] TC-LOG-01 Login with an existing onboarded account resumes at Verification in progress (47s)
+--- known-bug flows (expected to FAIL) ---
+Assert that "Please enter a valid phone number." is visible... FAILED
+Assertion is false: "Please enter a valid phone number." is visible
+=== run2 19:01:30
+[Passed] TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow (52s)
+[Passed] TC-OTP-02 Wrong phone OTP is rejected inline and the user can recover with the right code (55s)
+[Passed] TC-WEL-01 Welcome screen renders after fresh install (31s)
+[Passed] TC-LOG-02 Login rejects invalid phone numbers (51s)
+[Passed] TC-E2E-01 Full onboarding: phone OTP to email OTP to 7 stages to Verification in progress (4m 41s)
+[Passed] TC-NAV-01 Navigation between Welcome, Sign-up and Login (44s)
+[Passed] TC-PRM-01 App stays usable when notification permission is denied (24s)
+[Passed] TC-REG-02 Stage 1: invalid email is flagged and Next stays disabled until the form is valid (1m 18s)
+[Passed] TC-SUP-02 Phone field accepts digits only and caps at 10 digits (38s)
+[Passed] TC-INT-01 Entered phone number survives backgrounding (46s)
+[Passed] TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash (44s)
+11/11 Flows Passed in 12m 24s
+--- TC-LOG-01 (existing account) ---
+[Passed] TC-LOG-01 Login with an existing onboarded account resumes at Verification in progress (48s)
+=== demo recording 19:15:12
+      --local          (Beta) Record using local rendering. This will become the default in a future Maestro release.
+      --[no-]ansi, --[no-]color
+                       Enable / disable colors and ansi output
+ALL-DONE

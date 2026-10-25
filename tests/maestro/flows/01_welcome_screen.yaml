@@ -1,0 +1,12 @@
+appId: com.manastik.dadtmedico
+name: "TC-WEL-01 Welcome screen renders after fresh install"
+tags: [smoke, welcome]
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- assertVisible: "Welcome to Manastik"
+- assertVisible: "Build your practice."
+- assertVisible: "Care for more patients."
+- assertVisible: "TRUSTED BY INDIA'S LEADING DOCTORS"
+- assertVisible: "Login"
+- assertVisible: "Get Started"
+- takeScreenshot: TC-WEL-01_welcome

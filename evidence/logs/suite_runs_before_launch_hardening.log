@@ -1,0 +1,34 @@
+=== run1 16:47:38
+[Passed] TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow (45s)
+[Passed] TC-WEL-01 Welcome screen renders after fresh install (23s)
+[Passed] TC-LOG-02 Login rejects invalid phone numbers (42s)
+[Passed] TC-NAV-01 Navigation between Welcome, Sign-up and Login (36s)
+[Passed] TC-PRM-01 App stays usable when notification permission is denied (24s)
+[Passed] TC-SUP-02 Phone field accepts digits only and caps at 10 digits (30s)
+[Passed] TC-INT-01 Entered phone number survives backgrounding (38s)
+[Passed] TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash (35s)
+8/8 Flows Passed in 4m 32s
+=== run2 16:52:25
+[Passed] TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow (44s)
+[Passed] TC-WEL-01 Welcome screen renders after fresh install (22s)
+[Passed] TC-LOG-02 Login rejects invalid phone numbers (42s)
+[Passed] TC-NAV-01 Navigation between Welcome, Sign-up and Login (36s)
+[Passed] TC-PRM-01 App stays usable when notification permission is denied (25s)
+[Passed] TC-SUP-02 Phone field accepts digits only and caps at 10 digits (30s)
+[Passed] TC-INT-01 Entered phone number survives backgrounding (38s)
+[Passed] TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash (35s)
+8/8 Flows Passed in 4m 33s
+=== run3 16:57:12
+[Passed] TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow (46s)
+[Passed] TC-WEL-01 Welcome screen renders after fresh install (18s)
+[Passed] TC-LOG-02 Login rejects invalid phone numbers (30s)
+[Failed] TC-NAV-01 Navigation between Welcome, Sign-up and Login (34s) (Assertion is false: "Welcome to Manastik" is visible)
+[Passed] TC-PRM-01 App stays usable when notification permission is denied (13s)
+[Passed] TC-SUP-02 Phone field accepts digits only and caps at 10 digits (28s)
+[Passed] TC-INT-01 Entered phone number survives backgrounding (38s)
+[Passed] TC-NET-01 Sending OTP while offline shows Network Error with retry and does not crash (36s)
+=== bug001
+Assert that "Please enter a valid phone number." is visible... FAILED
+Assertion is false: "Please enter a valid phone number." is visible
+Assertion '"Please enter a valid phone number." is visible' failed. Check the UI hierarchy in debug artifacts to verify the element state and properties.
+ALL-DONE

@@ -1,0 +1,165 @@
+appId: com.manastik.dadtmedico
+name: "TC-E2E-01 Full onboarding: phone OTP to email OTP to 7 stages to Verification in progress"
+tags: [e2e, happy-path, requires-otp]
+env:
+  MAESTRO_TEST_OTP: ${MAESTRO_TEST_OTP}
+---
+- runFlow: ../subflows/signup_through_phone_otp.yaml
+# ---- Stage 1: personal details + email verification
+- assertVisible: "STAGE 1"
+- tapOn: "First Name.*"
+- inputText: "Test"
+- tapOn: "Last Name.*"
+- inputText: "Tester"
+- tapOn: "Email.*"
+- inputText: ${output.email}
+- tapOn: "Date of Birth.*"
+- inputText: "15081990"
+- hideKeyboard
+- tapOn: "Gender"
+- tapOn: "Male"
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "We.ve sent an email to.*"
+    timeout: 20000
+- tapOn:
+    point: "10%,34%"
+- inputText: ${MAESTRO_TEST_OTP}
+- tapOn: "Confirm"
+# ---- Stage 2: role
+- extendedWaitUntil:
+    visible: "Select Professional Role"
+    timeout: 20000
+- tapOn: "Medical.*"
+- tapOn: "Neurologist"
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn: "Next"
+# ---- Stage 3: qualifications + registration (document uploads)
+- extendedWaitUntil:
+    visible: "Add Your Educational Qualifications"
+    timeout: 15000
+- tapOn: "Primary Degree.*"
+- runFlow: ../subflows/pick_dummy_pdf.yaml
+- assertVisible: "dummy_test_document.pdf.*"
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Add Your Registration & License Details"
+    timeout: 15000
+- tapOn: "MCI/NMC Registration.*"
+- runFlow: ../subflows/pick_dummy_pdf.yaml
+- assertVisible: "dummy_test_document.pdf.*"
+- tapOn: "Send for Confirmation"
+# ---- Stage 4: experience (manual add is optional when a resume is uploaded)
+- extendedWaitUntil:
+    visible: "Add In Your Experience Information"
+    timeout: 20000
+- tapOn: "Upload your resume file.*"
+- runFlow: ../subflows/pick_dummy_pdf.yaml
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Add Your Professional Achievements"
+    timeout: 15000
+- tapOn: "Next"
+# ---- Stage 5: specialisation
+- extendedWaitUntil:
+    visible: "PROFESSIONAL SPECIALISATION"
+    timeout: 15000
+- tapOn: "Neurological"
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn: "Next"
+- runFlow:                           # selection animation can swallow the first tap
+    when:
+      visible: "PROFESSIONAL SPECIALISATION"
+    commands:
+      - tapOn: "Next"
+# ---- Stage 6: institute (live places search)
+- extendedWaitUntil:
+    visible: "Select Institute"
+    timeout: 15000
+- tapOn: "Search Institutes.*"
+- inputText: "Apollo"
+- hideKeyboard
+- extendedWaitUntil:
+    visible: "Apollo hospitals jubilee hills main gate.*"
+    timeout: 20000
+- tapOn: "Apollo hospitals jubilee hills main gate.*"
+- waitForAnimationToEnd:
+    timeout: 2000
+- tapOn: "Next"
+# ---- Stage 7: practice configuration (required-field validation, then fill)
+- extendedWaitUntil:
+    visible: "Add Your Practice Details"
+    timeout: 15000
+- waitForAnimationToEnd:
+    timeout: 3000
+- tapOn: "Next"                       # opens the configuration form for the selected institute
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:                            # first tap is sometimes swallowed while the card renders
+    when:
+      notVisible: "Languages Spoken"
+    commands:
+      - tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Languages Spoken"
+    timeout: 15000
+- tapOn: "Next"                       # empty required fields -> inline errors
+- extendedWaitUntil:
+    visible: "Please select language spoken"
+    timeout: 10000
+- assertVisible: "Please select language spoken"
+- assertVisible: "Please select consultation type"
+- assertVisible: "Please enter specialized procedures"
+- assertVisible: "Please enter consultation fee"
+- assertVisible: "Please select availability timings"
+- takeScreenshot: TC-E2E-01_stage7_required_errors
+- tapOn: "Languages Spoken"
+- tapOn: "English"
+- tapOn: "OK"
+- tapOn: "Consultation Type"
+- tapOn: "In-person Consultation"
+- tapOn: "Specialised Procedure.*"
+- inputText: "Test procedure"
+- tapOn: "Consultation Fee.*"
+- inputText: "abc"            # non-numeric input must be ignored
+- inputText: "500"
+- hideKeyboard
+- tapOn: "Select Availability.*"
+- tapOn: "Mon"
+- tapOn: "Tue"
+- scrollUntilVisible:
+    element: "9:00 AM - 9:30 AM"
+- tapOn: "9:00 AM - 9:30 AM"
+- tapOn: "Add"
+- assertVisible: "Availability Preview"
+- tapOn: "Publish"
+- tapOn: "Next"
+- extendedWaitUntil:
+    visible: "Complete"
+    timeout: 15000
+- assertVisible: ".*Configured.*"
+- tapOn: "Complete"
+# ---- End state: human verification pending
+- extendedWaitUntil:
+    visible: "Verification in progress"
+    timeout: 30000
+- assertVisible: ".*verifying your profile.*"
+- takeScreenshot: TC-E2E-01_verification_in_progress
+# ---- Repeated use: relaunch (no data clear) resumes on the pending screen
+- launchApp:
+    stopApp: true
+    permissions:
+      all: unset
+- extendedWaitUntil:                  # notification prompt is shown again on cold start
+    visible: "Allow"
+    timeout: 25000
+    optional: true
+- tapOn:
+    text: "Allow"
+    optional: true
+- extendedWaitUntil:
+    visible: "Verification in progress"
+    timeout: 30000
+- takeScreenshot: TC-E2E-01_after_relaunch

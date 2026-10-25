@@ -1,0 +1,14 @@
+appId: com.manastik.dadtmedico
+name: "TC-INT-01 Entered phone number survives backgrounding"
+tags: [interruption, edge]
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- runFlow: ../subflows/open_signup.yaml
+- tapOn: "Phone Number.*"
+- inputText: "9876543210"
+- pressKey: home
+- launchApp:
+    stopApp: false
+- assertVisible: "CREATE YOUR ACCOUNT"
+- assertVisible: "9876543210"
+- takeScreenshot: TC-INT-01_after_resume

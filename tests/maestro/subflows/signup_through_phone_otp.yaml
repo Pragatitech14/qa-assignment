@@ -1,0 +1,19 @@
+# Fresh app -> sign-up -> phone OTP (test OTP from env) -> lands on Stage 1 "Personal details"
+appId: com.manastik.dadtmedico
+---
+- runFlow: launch_fresh.yaml
+- runScript: ../scripts/random_phone.js
+- tapOn: "Get Started"
+- tapOn: "Phone Number.*"
+- inputText: ${output.phone}
+- tapOn: "Send OTP"
+- extendedWaitUntil:
+    visible: "Enter the security code"
+    timeout: 20000
+- assertVisible: "We've sent an SMS to \\+91 ${output.phone}"
+- tapOn:
+    point: "10%,30%"
+- inputText: ${MAESTRO_TEST_OTP}
+- extendedWaitUntil:
+    visible: "Personal details"
+    timeout: 20000

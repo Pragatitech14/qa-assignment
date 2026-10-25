@@ -1,0 +1,20 @@
+appId: com.manastik.dadtmedico
+name: "TC-PRM-01 App stays usable when notification permission is denied"
+tags: [permissions, negative]
+---
+- launchApp:
+    clearState: true
+    stopApp: true
+    permissions:
+      all: unset
+- extendedWaitUntil:
+    visible: "Don.t allow"      # system dialog uses a typographic apostrophe
+    timeout: 30000
+- takeScreenshot: TC-PRM-01_dialog
+- tapOn: "Don.t allow"
+- extendedWaitUntil:
+    visible: "Get Started"
+    timeout: 15000
+- assertVisible: "Welcome to Manastik"
+- runFlow: ../subflows/open_signup.yaml
+- takeScreenshot: TC-PRM-01_signup_after_deny

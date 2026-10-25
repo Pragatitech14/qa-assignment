@@ -1,0 +1,22 @@
+appId: com.manastik.dadtmedico
+name: "TC-SUP-03 Invalid or incomplete phone numbers do not start OTP flow"
+tags: [signup, validation, negative]
+---
+- runFlow: ../subflows/launch_fresh.yaml
+- runFlow: ../subflows/open_signup.yaml
+# Empty field: Send OTP must do nothing
+- tapOn: "Send OTP"
+- assertVisible: "Enter your phone number"
+# 9 digits (boundary - 1): still no navigation
+- tapOn: "Phone Number.*"
+- inputText: "987654321"
+- tapOn: "Send OTP"
+- assertVisible: "CREATE YOUR ACCOUNT"
+# 10 digits with an impossible Indian mobile prefix (0): rejected, user stays here
+- eraseText: 20
+- inputText: "0123456789"
+- tapOn: "Send OTP"
+- runScript: ../scripts/wait_for_toast.js
+- takeScreenshot: TC-SUP-03_invalid_phone_toast   # visual evidence of the toast
+- assertVisible: "CREATE YOUR ACCOUNT"            # no navigation to OTP step
+- assertNotVisible: ".*OTP.*sent.*"

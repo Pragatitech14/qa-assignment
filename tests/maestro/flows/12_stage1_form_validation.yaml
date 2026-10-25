@@ -1,0 +1,25 @@
+appId: com.manastik.dadtmedico
+name: "TC-REG-02 Stage 1: invalid email is flagged and Next stays disabled until the form is valid"
+tags: [registration, validation, negative, requires-otp]
+env:
+  MAESTRO_TEST_OTP: ${MAESTRO_TEST_OTP}
+---
+- runFlow: ../subflows/signup_through_phone_otp.yaml
+- tapOn: "Next"                       # disabled while empty: nothing happens
+- assertVisible: "Personal details"
+- tapOn: "First Name.*"
+- inputText: "Test"
+- tapOn: "Last Name.*"
+- inputText: "Tester"
+- tapOn: "Email.*"
+- inputText: "abc"
+- assertVisible: "Please enter a valid email address"
+- takeScreenshot: TC-REG-02_invalid_email
+- tapOn: "Date of Birth.*"
+- inputText: "15081990"
+- hideKeyboard
+- tapOn: "Gender"
+- tapOn: "Male"
+- tapOn: "Next"                       # email still invalid
+- assertVisible: "Personal details"
+- assertNotVisible: ".*email to.*"

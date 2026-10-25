@@ -1,0 +1,6 @@
+# Maestro workspace configuration
+flows:
+  - flows/*.yaml
+excludeTags:
+  - known-bug                  # documents a confirmed defect; fails by design
+  - requires-existing-account  # run separately by tests/run_all.sh
